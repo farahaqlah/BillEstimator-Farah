@@ -23,8 +23,8 @@ public class RecordsActivity extends AppCompatActivity {
     TextView tvEmpty;
     Button btnBack;
     DataHelper dbHelper;
-    String[] register;   // text shown in the list
-    int[] ids;           // database id for each row
+    String[] register;
+    int[] ids;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

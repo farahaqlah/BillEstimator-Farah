@@ -41,7 +41,7 @@ public class UpdateActivity extends AppCompatActivity {
         btnUpdate = findViewById(R.id.btnUpdate);
         btnBack = findViewById(R.id.btnBack);
 
-        // fill the month dropdown (months list comes from MainActivity)
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, MainActivity.months);
         spinnerMonth.setAdapter(adapter);
@@ -58,7 +58,7 @@ public class UpdateActivity extends AppCompatActivity {
             }
             etUnit.setText(String.valueOf(cursor.getInt(2)));
 
-            // rebate 0-5 matches the position of the radio button in the group
+
             int rebate = cursor.getInt(4);
             ((RadioButton) rgRebate.getChildAt(rebate)).setChecked(true);
         }
@@ -69,7 +69,7 @@ public class UpdateActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String unitText = etUnit.getText().toString().trim();
 
-                // error messages
+
                 if (unitText.isEmpty()) {
                     etUnit.setError("Please enter the electricity unit (kWh)");
                     return;
@@ -84,7 +84,7 @@ public class UpdateActivity extends AppCompatActivity {
                 RadioButton rb = findViewById(rgRebate.getCheckedRadioButtonId());
                 int rebate = Integer.parseInt(rb.getText().toString().replace("%", ""));
 
-                // recalculate using the same method as the main page
+
                 double total = MainActivity.calculateTotal(unit);
                 double finalCost = total - (total * rebate / 100);
 

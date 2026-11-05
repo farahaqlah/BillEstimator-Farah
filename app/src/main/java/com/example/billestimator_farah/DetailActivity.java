@@ -79,7 +79,6 @@ public class DetailActivity extends AppCompatActivity {
         });
     }
 
-    // reload every time the page is shown (also after coming back from Edit)
     @Override
     protected void onResume() {
         super.onResume();

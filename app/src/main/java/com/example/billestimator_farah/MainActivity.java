@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         tvTotal = findViewById(R.id.tvTotal);
         tvFinal = findViewById(R.id.tvFinal);
 
-        // fill the month dropdown
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, months);
         spinnerMonth.setAdapter(adapter);
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     public void calculateAndSave() {
         String unitText = etUnit.getText().toString().trim();
 
-        // error messages
+
         if (unitText.isEmpty()) {
             etUnit.setError("Please enter the electricity unit (kWh)");
             return;
@@ -93,18 +93,18 @@ public class MainActivity extends AppCompatActivity {
 
         String month = spinnerMonth.getSelectedItem().toString();
 
-        // read the selected radio button text, e.g. "5%" -> 5
+
         RadioButton rb = findViewById(rgRebate.getCheckedRadioButtonId());
         int rebate = Integer.parseInt(rb.getText().toString().replace("%", ""));
 
         double total = calculateTotal(unit);
         double finalCost = total - (total * rebate / 100);
 
-        // show result on the same page
+
         tvTotal.setText("Total charges: RM " + String.format("%.2f", total));
         tvFinal.setText("Final cost: RM " + String.format("%.2f", finalCost));
 
-        // save to local database
+
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("INSERT INTO bill(month, unit, total, rebate, finalcost) VALUES('"
                 + month + "'," + unit + "," + total + "," + rebate + "," + finalCost + ")");
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Bill saved successfully", Toast.LENGTH_SHORT).show();
     }
 
-    // block rates from the assignment table
+
     public static double calculateTotal(int unit) {
         double total;
         if (unit <= 200) {

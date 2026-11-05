@@ -10,15 +10,15 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Helpful notice -->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="How to use: Select the month, enter the electricity unit (1 - 1000 kWh), choose the rebate, then press CALCULATE &amp; SAVE."
+            android:text="Please enter your electricity usage, select a month and rebate, then calculate your bill"
             android:textColor="@color/primary_dark"
             android:layout_marginBottom="12dp" />
 
-        <!-- Input box -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                 android:id="@+id/etUnit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="e.g. 250"
+                android:hint="Enter unit used"
                 android:inputType="number"
                 android:maxLength="4" />
 
@@ -122,7 +122,7 @@
             android:drawableTint="@color/white"
             android:textColor="@color/white" />
 
-        <!-- Result box (same page) -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
